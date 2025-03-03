@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "solana-bot"
+version = "0.1.0"
+description = ""
+authors = ["parker1019 <parker178912.cs12@nycu.edu.tw>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+solana = "^0.36.6"
+python-dotenv = "^1.0.1"
+transformers = "^4.49.0"
+playwright = "^1.50.0"
+httpx = "^0.28.1"
+solders = "^0.26.0"
+tensorflow = "^2.18.0"
+tf-keras = "^2.18.0"
+websockets = "^15.0"
+requests = "^2.32.3"
+asyncio = "^3.4.3"
+rich = "^13.9.4"
+base58 = "^2.1.1"
+pytz = "^2025.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

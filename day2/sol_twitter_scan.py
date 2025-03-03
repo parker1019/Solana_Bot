@@ -35,7 +35,7 @@ logging.getLogger("solana.rpc.async_api").setLevel(logging.WARNING)
 load_dotenv()
 
 # Solana RPC endpoint
-SOLANA_RPC = os.getenv('SOLANA_RPC')
+RPC_ENDPOINTS = os.getenv('RPC_ENDPOINTS')
 PUMP_FUN_PROGRAM_IDS = [
     Pubkey.from_string(os.getenv('PUMP_FUN_PROGRAM_ID')),
 ]
@@ -44,7 +44,7 @@ TWITTER_PASSWORD = os.getenv('TWITTER_PASSWORD')
 TWITTER_EMAIL = os.getenv('TWITTER_EMAIL')
 
 # 檢查必要的環境變量
-required_env_vars = ['SOLANA_RPC', 'PUMP_FUN_PROGRAM_ID', 'TWITTER_USERNAME', 'TWITTER_PASSWORD', 'TWITTER_EMAIL']
+required_env_vars = ['RPC_ENDPOINTS', 'PUMP_FUN_PROGRAM_ID', 'TWITTER_USERNAME', 'TWITTER_PASSWORD', 'TWITTER_EMAIL']
 missing_env_vars = [var for var in required_env_vars if not os.getenv(var)]
 if missing_env_vars:
     raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_env_vars)}")
@@ -324,7 +324,7 @@ class SolanaTokenDetector:
 
     async def fetch_pumpfun_new_tokens(self):
         self.latest_mints = []
-        async with AsyncClient(SOLANA_RPC) as client:
+        async with AsyncClient(RPC_ENDPOINTS) as client:
             try:
                 logger.info("開始獲取 Pump.fun 最近的交易...")
                 for program_id in PUMP_FUN_PROGRAM_IDS:
